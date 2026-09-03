@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando el Sistema Solar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #050b2e, #101b4d, #182d68);
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        header h1 {
+            font-size: 42px;
+            color: #ffd54a;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        nav {
+            background: #07102f;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: #ffd54a;
+            color: #07102f;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 18px;
+        }
+
+        section h2 {
+            color: #ffd54a;
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        section p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .objetivos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 22px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .tarjeta h3 {
+            color: #7ddcff;
+            margin-bottom: 10px;
+        }
+
+        .botones {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #ffd54a;
+            color: #07102f;
+            padding: 13px 22px;
+            margin: 8px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            background: #05091f;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #7ddcff;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            nav a {
+                margin: 4px;
+                padding: 8px 10px;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🚀 ¡Explorando el Sistema Solar!</h1>
+        <p>Un viaje educativo para descubrir nuestro vecindario espacial 🌎🪐</p>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="planetas.html">🪐 Los planetas</a>
+        <a href="cuerpos.html">☀️ El Sol y otros cuerpos</a>
+        <a href="actividades.html">🎮 Aprende y comprueba</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <h2>🌌 Bienvenidos al espacio</h2>
+
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Planets2013.svg"
+                alt="Representación de los planetas del Sistema Solar">
+
+            <p>
+                El Sistema Solar es nuestro hogar en el espacio.
+                Está formado por el Sol y todos los cuerpos celestes
+                que se encuentran bajo su influencia gravitatoria.
+                Entre ellos están los planetas, sus satélites,
+                los asteroides y los cometas.
+            </p>
+
+            <p>
+                En este sitio aprenderás de una manera sencilla y divertida
+                cómo está formado el Sistema Solar y conocerás algunas
+                características de sus principales cuerpos celestes.
+            </p>
+        </section>
+
+        <section>
+            <h2>🎯 ¿Qué aprenderás?</h2>
+
+            <div class="objetivos">
+
+                <div class="tarjeta">
+                    <h3>🪐 Los planetas</h3>
+                    <p>
+                        Conocerás los ocho planetas y algunas de sus
+                        principales características.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>☀️ El Sol</h3>
+                    <p>
+                        Descubrirás por qué el Sol es tan importante
+                        para nuestro Sistema Solar.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>☄️ Otros cuerpos</h3>
+                    <p>
+                        Aprenderás sobre cometas, asteroides y otros
+                        objetos que existen en el espacio.
+                    </p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>🎮 ¡Pon a prueba tus conocimientos!</h3>
+                    <p>
+                        Al final podrás realizar actividades para
+                        comprobar cuánto aprendiste.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>🔭 Comencemos nuestra aventura</h2>
+
+            <p>
+                El Sistema Solar es enorme y está lleno de misterios.
+                Cada planeta tiene características diferentes y todos
+                forman parte de un increíble sistema que gira alrededor
+                del Sol.
+            </p>
+
+            <div class="botones">
+                <a class="boton" href="planetas.html">
+                    Conocer los planetas 🪐
+                </a>
+
+                <a class="boton" href="cuerpos.html">
+                    Explorar el Sol ☀️
+                </a>
+
+                <a class="boton" href="actividades.html">
+                    Ir a las actividades 🎮
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            🌎 Proyecto educativo: Explorando el Sistema Solar
+        </p>
+
+        <p>
+            Recurso de referencia:
+            <a href="https://solarsystem.nasa.gov/" target="_blank">
+                NASA - Solar System Exploration
+            </a>
+        </p>
+    </footer>
+
+</body>
+</html>
