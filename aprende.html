@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende y comprueba</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #071a3d;
+            color: white;
+        }
+
+        header {
+            background-color: #0d2b5c;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ffd43b;
+            font-size: 32px;
+        }
+
+        nav {
+            background-color: #123b78;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd43b;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .tarjeta {
+            background-color: white;
+            color: #172b4d;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .tarjeta h2 {
+            color: #123b78;
+        }
+
+        .pregunta {
+            margin-top: 25px;
+            padding: 20px;
+            border: 2px solid #d9e2f3;
+            border-radius: 12px;
+        }
+
+        .pregunta p {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #ffd43b;
+            color: #172b4d;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #f5c400;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #0d2b5c;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Aprende y comprueba</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="planetas.html">🪐 Los planetas</a>
+        <a href="cuerpos.html">☀️ El Sol y otros cuerpos</a>
+        <a href="aprende.html">📚 Aprende y comprueba</a>
+    </nav>
+
+    <main class="contenedor">
+
+        <div class="tarjeta">
+            <h2>🌌 Pon a prueba tus conocimientos</h2>
+
+            <p>
+                Después de aprender sobre el Sistema Solar, responde las
+                siguientes preguntas. ¡Al final podrás comprobar cuántas
+                respuestas acertaste!
+            </p>
+
+            <div class="pregunta">
+                <p>1. ¿Cuál es la estrella que se encuentra en el centro del Sistema Solar?</p>
+
+                <label>
+                    <input type="radio" name="p1" value="a">
+                    La Tierra
+                </label>
+
+                <label>
+                    <input type="radio" name="p1" value="b">
+                    El Sol
+                </label>
+
+                <label>
+                    <input type="radio" name="p1" value="c">
+                    Marte
+                </label>
+            </div>
+
+            <div class="pregunta">
+                <p>2. ¿Cuál es el planeta más cercano al Sol?</p>
+
+                <label>
+                    <input type="radio" name="p2" value="a">
+                    Venus
+                </label>
+
+                <label>
+                    <input type="radio" name="p2" value="b">
+                    Marte
+                </label>
+
+                <label>
+                    <input type="radio" name="p2" value="c">
+                    Mercurio
+                </label>
+            </div>
+
+            <div class="pregunta">
+                <p>3. ¿Entre qué planetas se encuentra el cinturón de asteroides?</p>
+
+                <label>
+                    <input type="radio" name="p3" value="a">
+                    Tierra y Marte
+                </label>
+
+                <label>
+                    <input type="radio" name="p3" value="b">
+                    Marte y Júpiter
+                </label>
+
+                <label>
+                    <input type="radio" name="p3" value="c">
+                    Júpiter y Saturno
+                </label>
+            </div>
+
+            <div class="pregunta">
+                <p>4. ¿De qué están formados principalmente los cometas?</p>
+
+                <label>
+                    <input type="radio" name="p4" value="a">
+                    Hielo, polvo y rocas
+                </label>
+
+                <label>
+                    <input type="radio" name="p4" value="b">
+                    Solo agua
+                </label>
+
+                <label>
+                    <input type="radio" name="p4" value="c">
+                    Solo gas
+                </label>
+            </div>
+
+            <div class="pregunta">
+                <p>5. ¿Qué planeta es conocido como el planeta rojo?</p>
+
+                <label>
+                    <input type="radio" name="p5" value="a">
+                    Marte
+                </label>
+
+                <label>
+                    <input type="radio" name="p5" value="b">
+                    Venus
+                </label>
+
+                <label>
+                    <input type="radio" name="p5" value="c">
+                    Neptuno
+                </label>
+            </div>
+
+            <div style="text-align:center;">
+                <button onclick="comprobar()">⭐ Comprobar respuestas</button>
+            </div>
+
+            <div id="resultado"></div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>🌟 ¡Sigue explorando y aprendiendo sobre el Sistema Solar! 🌟</p>
+    </footer>
+
+    <script>
+        function comprobar() {
+
+            let respuestas = {
+                p1: "b",
+                p2: "c",
+                p3: "b",
+                p4: "a",
+                p5: "a"
+            };
+
+            let puntos = 0;
+
+            for (let pregunta in respuestas) {
+                let seleccion = document.querySelector(
+                    'input[name="' + pregunta + '"]:checked'
+                );
+
+                if (seleccion && seleccion.value === respuestas[pregunta]) {
+                    puntos++;
+                }
+            }
+
+            let resultado = document.getElementById("resultado");
+
+            if (puntos === 5) {
+                resultado.innerHTML = "🎉 ¡Excelente! ¡Obtuviste 5 de 5!";
+            } else if (puntos >= 3) {
+                resultado.innerHTML = "👏 ¡Muy bien! Obtuviste " + puntos + " de 5.";
+            } else {
+                resultado.innerHTML = "📖 Sigue estudiando. Obtuviste " + puntos + " de 5.";
+            }
+        }
+    </script>
+
+</body>
+</html>
