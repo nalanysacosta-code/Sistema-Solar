@@ -3,224 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Los Planetas - Sistema Solar</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #071a3d;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 1px, transparent 1px),
+                radial-gradient(circle at 80% 40%, rgba(255,255,255,0.07) 1px, transparent 1px),
+                radial-gradient(circle at 50% 80%, rgba(255,255,255,0.06) 1px, transparent 1px),
+                #071a3d;
+            background-size: 90px 90px, 130px 130px, 170px 170px;
             color: white;
             line-height: 1.6;
         }
 
         header {
-            background: #123d78;
+            background: linear-gradient(135deg, #123d78, #071a3d);
             text-align: center;
-            padding: 35px 20px;
+            padding: 45px 20px;
+            border-bottom: 2px solid #2d72c7;
         }
 
         header h1 {
-            color: #ffd83d;
-            font-size: 38px;
             margin: 0;
+            font-size: 42px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
         header p {
+            margin: 12px auto 0;
+            max-width: 750px;
             font-size: 18px;
+            color: #d9e9ff;
         }
 
         nav {
-            background: #0b2b5c;
-            text-align: center;
+            background: rgba(5, 20, 48, 0.95);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
             padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #285b9d;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 18px;
+            background: #123d78;
+            padding: 10px 16px;
+            border-radius: 20px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #ffd83d;
+            background: #1d5ca8;
+            transform: translateY(-2px);
         }
 
-        main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 30px 20px;
+        .contenido {
+            width: 92%;
+            max-width: 1200px;
+            margin: 35px auto;
         }
 
         .introduccion {
-            background: #174d91;
+            background: rgba(18, 61, 120, 0.8);
             padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .introduccion h2 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .introduccion p {
+            max-width: 900px;
+            margin: auto;
+            color: #e2edff;
+            font-size: 17px;
+        }
+
+        .planetas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
         .planeta {
-            background: #12345f;
-            padding: 22px;
-            margin: 20px 0;
-            border-radius: 15px;
+            background: rgba(18, 61, 120, 0.92);
+            border: 1px solid rgba(100, 170, 240, 0.35);
+            border-radius: 22px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .planeta:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .planeta h2 {
-            color: #ffd83d;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 27px;
         }
 
-        .planeta img {
-            width: 180px;
-            height: 180px;
+        .imagen-planeta {
+            width: 170px;
+            height: 170px;
             object-fit: cover;
-            border-radius: 50%;
             display: block;
-            margin: 15px auto;
+            margin: 10px auto 20px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.25);
+            box-shadow: 0 0 25px rgba(255,255,255,0.12);
+        }
+
+        .planeta p {
+            color: #e4efff;
+            font-size: 16px;
         }
 
         .dato {
-            background: #1d5ca3;
-            padding: 12px;
+            margin-top: 18px;
+            background: rgba(4, 25, 60, 0.8);
+            border-left: 5px solid #65aef5;
+            padding: 15px;
             border-radius: 10px;
+            text-align: left;
+        }
+
+        .dato strong {
+            color: #8ec7ff;
+        }
+
+        .numero {
+            display: inline-block;
+            background: #0a2b5b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #b9dcff;
+            margin-bottom: 8px;
+        }
+
+        .final {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #123d78, #0b2855);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .final h2 {
+            margin-top: 0;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            background: #2b78c5;
+            color: white;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #4594e4;
+            transform: scale(1.04);
         }
 
         footer {
-            background: #0b2b5c;
             text-align: center;
-            padding: 25px;
-            margin-top: 30px;
+            padding: 30px 20px;
+            margin-top: 45px;
+            background: #04132e;
+            color: #b7c9df;
+        }
+
+        @media (max-width: 750px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav {
+                position: static;
+            }
+
+            nav a {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .planetas {
+                grid-template-columns: 1fr;
+            }
+
+            .planeta {
+                padding: 22px 18px;
+            }
+
+            .imagen-planeta {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🪐 Los Planetas</h1>
-    <p>Conoce los ocho mundos que forman nuestro Sistema Solar</p>
-</header>
-
-<nav>
-    <a href="index.html">🏠 Inicio</a>
-    <a href="planetas.html">🪐 Los planetas</a>
-    <a href="index.html">☀️ El Sol</a>
-    <a href="index.html">🚀 Aprende y comprueba</a>
-</nav>
-
-<main>
-
-    <section class="introduccion">
-        <h2>🌌 ¿Qué son los planetas?</h2>
+    <header>
+        <h1>🪐 Los Planetas</h1>
         <p>
-            Los planetas son grandes cuerpos celestes que giran alrededor de una estrella.
-            En nuestro Sistema Solar existen ocho planetas: Mercurio, Venus, Tierra, Marte,
-            Júpiter, Saturno, Urano y Neptuno.
+            Conoce los ocho planetas que forman nuestro Sistema Solar
+            y descubre algunas de sus características más interesantes.
         </p>
+    </header>
 
-        <p>
-            Cada planeta es diferente. Algunos son rocosos, mientras que otros son gigantes
-            gaseosos o helados. ¡Vamos a conocerlos!
-        </p>
+    <nav>
+        <a href="index.html">🏠 Inicio</a>
+        <a href="planetas.html">🪐 Los planetas</a>
+        <a href="cuerpos.html">☀️ El Sol y otros cuerpos</a>
+        <a href="aprende.html">📚 Aprende y comprueba</a>
+    </nav>
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg"
-             alt="Los planetas del Sistema Solar"
-             style="width:100%; height:auto; border-radius:15px;">
-    </section>
+    <main class="contenido">
 
-    <section class="planeta">
-        <h2>☿️ 1. Mercurio</h2>
-        <p>
-            Mercurio es el planeta más cercano al Sol y también el más pequeño del Sistema Solar.
-            Su superficie es rocosa y tiene muchos cráteres.
-        </p>
-        <div class="dato">⭐ Dato curioso: un año en Mercurio dura solamente 88 días terrestres.</div>
-    </section>
+        <section class="introduccion">
+            <h2>🌌 Nuestro Sistema Solar</h2>
 
-    <section class="planeta">
-        <h2>♀️ 2. Venus</h2>
-        <p>
-            Venus es el segundo planeta desde el Sol. Tiene una atmósfera muy densa y es
-            el planeta más caliente del Sistema Solar.
-        </p>
-        <div class="dato">⭐ Dato curioso: Venus gira en dirección contraria a la mayoría de los planetas.</div>
-    </section>
+            <p>
+                El Sistema Solar está formado por el Sol y todos los cuerpos
+                celestes que orbitan a su alrededor. Entre ellos se encuentran
+                los ocho planetas: Mercurio, Venus, Tierra, Marte, Júpiter,
+                Saturno, Urano y Neptuno.
+            </p>
+        </section>
 
-    <section class="planeta">
-        <h2>🌎 3. Tierra</h2>
-        <p>
-            La Tierra es nuestro hogar. Es el único planeta conocido que tiene vida y posee
-            grandes cantidades de agua líquida en su superficie.
-        </p>
-        <div class="dato">⭐ Dato curioso: aproximadamente el 71% de la superficie terrestre está cubierta de agua.</div>
-    </section>
+        <section class="planetas">
 
-    <section class="planeta">
-        <h2>♂️ 4. Marte</h2>
-        <p>
-            Marte es conocido como el planeta rojo debido al hierro presente en sus rocas y
-            en el polvo de su superficie.
-        </p>
-        <div class="dato">⭐ Dato curioso: Marte tiene volcanes y cañones enormes.</div>
-    </section>
+            <!-- MERCURIO -->
+            <article class="planeta">
 
-    <section class="planeta">
-        <h2>♃ 5. Júpiter</h2>
-        <p>
-            Júpiter es el planeta más grande del Sistema Solar. Es un gigante gaseoso y
-            posee una gran cantidad de lunas.
-        </p>
-        <div class="dato">⭐ Dato curioso: Júpiter tiene una enorme tormenta llamada la Gran Mancha Roja.</div>
-    </section>
+                <span class="numero">PLANETA 1</span>
 
-    <section class="planeta">
-        <h2>♄ 6. Saturno</h2>
-        <p>
-            Saturno es famoso por sus impresionantes anillos. Es el segundo planeta más grande
-            del Sistema Solar y está compuesto principalmente por gases.
-        </p>
-        <div class="dato">⭐ Dato curioso: sus anillos están formados principalmente por hielo y partículas de roca.</div>
-    </section>
+                <h2>☿ Mercurio</h2>
 
-    <section class="planeta">
-        <h2>♅ 7. Urano</h2>
-        <p>
-            Urano es un gigante helado de color azul verdoso. Su color se debe principalmente
-            al metano presente en su atmósfera.
-        </p>
-        <div class="dato">⭐ Dato curioso: Urano gira prácticamente de lado.</div>
-    </section>
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mercury%20as%20Never%20Seen%20Before.jpg"
+                    alt="Planeta Mercurio"
+                    class="imagen-planeta"
+                >
 
-    <section class="planeta">
-        <h2>♆ 8. Neptuno</h2>
-        <p>
-            Neptuno es el planeta más alejado del Sol. Es un planeta frío, oscuro y con
-            vientos extremadamente rápidos.
-        </p>
-        <div class="dato">⭐ Dato curioso: Neptuno tarda aproximadamente 165 años terrestres en completar una vuelta alrededor del Sol.</div>
-    </section>
+                <p>
+                    Mercurio es el planeta más cercano al Sol y también el
+                    más pequeño del Sistema Solar. Su superficie está llena
+                    de cráteres y tiene temperaturas muy extremas.
+                </p>
 
-    <section class="introduccion">
-        <h2>🔭 Para aprender más</h2>
-        <p>
-            Puedes visitar la página oficial de la NASA para conocer más información
-            sobre nuestro Sistema Solar.
-        </p>
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Un año en Mercurio dura solamente 88 días terrestres.
+                </div>
 
-        <a href="https://science.nasa.gov/solar-system/"
-           target="_blank"
-           style="color:#ffd83d;">
-            🌐 Visitar NASA: Sistema Solar
-        </a>
-    </section>
+            </article>
 
-</main>
 
-<footer>
-    <p>🚀 Proyecto educativo: Explorando el Sistema Solar</p>
-    <p>Recurso creado para aprender de manera divertida sobre el espacio.</p>
-</footer>
+            <!-- VENUS -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 2</span>
+
+                <h2>♀ Venus</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Venus.jpg"
+                    alt="Planeta Venus"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Venus es el segundo planeta desde el Sol. Está cubierto
+                    por una atmósfera muy densa y posee temperaturas
+                    extremadamente altas.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Venus es el planeta más caliente del Sistema Solar.
+                </div>
+
+            </article>
+
+
+            <!-- TIERRA -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 3</span>
+
+                <h2>🌍 Tierra</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nasa%20blue%20marble.jpg"
+                    alt="Planeta Tierra"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    La Tierra es nuestro hogar. Tiene agua líquida en su
+                    superficie, una atmósfera que permite la vida y un
+                    satélite natural llamado Luna.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Aproximadamente el 71% de la superficie terrestre está
+                    cubierta por agua.
+                </div>
+
+            </article>
+
+
+            <!-- MARTE -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 4</span>
+
+                <h2>♂ Marte</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Full%20Mars.jpg"
+                    alt="Planeta Marte"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Marte es conocido como el planeta rojo debido al color
+                    de su superficie. Es un mundo frío, rocoso y con una
+                    atmósfera muy delgada.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Marte tiene el volcán más grande conocido del Sistema
+                    Solar: el Monte Olimpo.
+                </div>
+
+            </article>
+
+
+            <!-- JÚPITER -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 5</span>
+
+                <h2>♃ Júpiter</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Jupiter.jpg"
+                    alt="Planeta Júpiter"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Júpiter es el planeta más grande del Sistema Solar.
+                    Es un gigante gaseoso compuesto principalmente de
+                    hidrógeno y helio.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    La Gran Mancha Roja de Júpiter es una enorme tormenta
+                    que ha durado durante siglos.
+                </div>
+
+            </article>
+
+
+            <!-- SATURNO -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 6</span>
+
+                <h2>♄ Saturno</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Full%20Disk%20of%20Saturn.jpg"
+                    alt="Planeta Saturno"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Saturno es un gigante gaseoso famoso por su impresionante
+                    sistema de anillos formado principalmente por hielo,
+                    polvo y fragmentos rocosos.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Saturno tiene una densidad media menor que la del agua.
+                </div>
+
+            </article>
+
+
+            <!-- URANO -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 7</span>
+
+                <h2>♅ Urano</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Uranus2.jpg"
+                    alt="Planeta Urano"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Urano es un gigante de hielo de color azul verdoso.
+                    Su eje de rotación está muy inclinado, por lo que
+                    parece girar casi de lado.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Un día en Urano dura aproximadamente 17 horas terrestres.
+                </div>
+
+            </article>
+
+
+            <!-- NEPTUNO -->
+            <article class="planeta">
+
+                <span class="numero">PLANETA 8</span>
+
+                <h2>♆ Neptuno</h2>
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Neptune.jpg"
+                    alt="Planeta Neptuno"
+                    class="imagen-planeta"
+                >
+
+                <p>
+                    Neptuno es el planeta más alejado del Sol. Es un gigante
+                    de hielo de color azul y posee una atmósfera con vientos
+                    extremadamente rápidos.
+                </p>
+
+                <div class="dato">
+                    <strong>💡 Dato curioso:</strong>
+                    Neptuno tarda aproximadamente 165 años terrestres
+                    en completar una vuelta alrededor del Sol.
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <section class="final">
+
+            <h2>🚀 ¿Quieres seguir aprendiendo?</h2>
+
+            <p>
+                Ahora que conoces los ocho planetas, puedes aprender sobre
+                el Sol, los cometas, los asteroides y otros cuerpos del
+                Sistema Solar.
+            </p>
+
+            <a class="boton" href="cuerpos.html">
+                ☀️ Conocer el Sol y otros cuerpos
+            </a>
+
+            <a class="boton" href="aprende.html">
+                📚 Hacer el cuestionario
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        🌌 Sistema Solar | Proyecto educativo
+    </footer>
 
 </body>
 </html>
