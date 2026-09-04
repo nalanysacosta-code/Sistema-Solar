@@ -98,7 +98,21 @@
     <main class="contenedor">
 <section>
     <h2>🎥 Aprende sobre el Sistema Solar</h2>
+<section style="text-align:center; margin:40px auto;">
+    <h2>🪐 Animación del Sistema Solar</h2>
+    <p>Observa cómo los planetas se mueven alrededor del Sol.</p>
 
+    <div style="font-size:70px; animation: girar 8s linear infinite;">
+        ☀️ 🌍 🪐
+    </div>
+
+    <style>
+        @keyframes girar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</section>
     <div style="max-width: 800px; margin: 20px auto; text-align: center;">
         <iframe
             width="100%"
